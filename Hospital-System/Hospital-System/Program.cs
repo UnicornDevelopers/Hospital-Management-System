@@ -1,4 +1,6 @@
 using Hospital_System.Data;
+using Hospital_System.Models.Interfaces;
+using Hospital_System.Models.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hospital_System
@@ -32,6 +34,12 @@ namespace Hospital_System
             builder.Services
                 .AddDbContext<HospitalDbContext>
             (opions => opions.UseSqlServer(connString));
+
+
+
+            builder.Services.AddTransient<INurse, NurseService>();
+
+
 
             builder.Services.AddSwaggerGen(options =>
             {
