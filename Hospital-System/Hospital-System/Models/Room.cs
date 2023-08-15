@@ -4,18 +4,16 @@ namespace Hospital_System.Models
 {
     public class Room
     {
-        public int RoomID { get; set; }
+        public int Id { get; set; }
         public string RoomNumber { get; set; }
         public bool RoomAvailability { get; set; }
         public int NumberOfBeds { get; set; }
-        [ForeignKey("Department")]
-        public int DepartmentID { get; set; }
-        [ForeignKey("Patient")]
-        public int PatientID { get; set; }
+        public int? DepartmentId { get; set; }
+       
 
         //Nav
-
-        public List<Patient>? Patients { get; set; }
-
+        public List<Patient> Patients { get; set; }
+        [ForeignKey("DepartmentId")]
+        public Department department { get; set; }
     }
 }

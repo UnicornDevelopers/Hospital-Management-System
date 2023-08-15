@@ -5,15 +5,16 @@ namespace Hospital_System.Models.DTOs
     public class AppointmentDTO
     {
 
-        public int AppointmentID { get; set; }
+        public int Id { get; set; }
         public DateTime DateOfAppointment { get; set; }
-        
-        public int PatientID { get; set; }
 
+        public int PatientId { get; set; }
 
+        public int DoctorId { get; set; }
 
         // Nav
         public Doctor doctor { get; set; }
+        public Patient patient { get; set; }
 
     }
 }

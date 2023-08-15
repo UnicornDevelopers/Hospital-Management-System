@@ -5,6 +5,19 @@ namespace Hospital_System
 {
     public class Program
     {
+
+        //Required Packages : 
+        //a- Microsoft.EntityFrameworkCore.SqlServer(7.0.9)
+        //b- Microsoft.EntityFrameworkCore.Tools(7.0.9)
+        //c- Microsoft.VisualStudio.Web.CodeGeneration(7.0.8)
+        //d- Microsoft.VisualStudio.Web.CodeGeneration.Design(7.0.8)
+        //E- Microsoft.EntityFrameworkCore.Sqlite
+        //F- Microsoft.AspNetCore.Mvc.NewtonsoftJson
+        //G- Microsoft.AspNetCore.Identity.EntityFrameworkCore
+        //H- Microsoft.AspNetCore.Authentication.JwtBearer
+        //I- Swashbuckle.AspNetCore
+
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);

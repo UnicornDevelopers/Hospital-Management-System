@@ -12,6 +12,74 @@ namespace Hospital_System.Data
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+
+
+            modelBuilder.Entity<Doctor>()
+          .HasMany(a => a.Appointments)
+           .WithOne(b => b.doctor)
+             .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Appointment>()
+             .HasOne(a => a.doctor)
+             .WithMany(d => d.Appointments)
+             .HasForeignKey(a => a.DoctorId)
+             .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Appointment>()
+                .HasOne(a => a.patient)
+                .WithMany(p => p.Appointments)
+                .HasForeignKey(a => a.PatientId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Doctor>()
+      .HasMany(a => a.medicalReports)
+      .WithOne(b => b.doctor)
+       .OnDelete(DeleteBehavior.ClientSetNull);
+
+
+            modelBuilder.Entity<Patient>()
+      .HasMany(a => a.Appointments)
+      .WithOne(b => b.patient);
+
+            modelBuilder.Entity<Patient>()
+   .HasMany(a => a.MedicalReports)
+   .WithOne(b => b.patient);
+
+            modelBuilder.Entity<Department>()
+      .HasMany(a => a.Doctors)
+      .WithOne(b => b.department);
+
+            modelBuilder.Entity<Department>()
+      .HasMany(a => a.Nurses)
+      .WithOne(b => b.department);
+
+            modelBuilder.Entity<Department>()
+      .HasMany(a => a.Rooms)
+      .WithOne(b => b.department);
+
+            modelBuilder.Entity<MedicalReport>()
+      .HasMany(a => a.Medicines)
+      .WithOne(b => b.medicalReport);
+
+            modelBuilder.Entity<Room>()
+           .HasMany(a => a.Patients)
+            .WithOne(b => b.Rooms);
+
+            modelBuilder.Entity<MedicalReport>()
+               .HasMany(a => a.Medicines)
+              .WithOne(b => b.medicalReport);
+
+            modelBuilder.Entity<MedicalReport>()
+           .HasMany(a => a.Medicines)
+         .WithOne(b => b.medicalReport);
+
+
+        }
+
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Nurse> Nurses { get; set; }
         public DbSet<Patient> Patients { get; set; }
