@@ -78,6 +78,62 @@ namespace Hospital_System.Data
          .WithOne(b => b.medicalReport);
 
 
+
+
+
+            // Seed Nurses data
+            modelBuilder.Entity<Nurse>().HasData(
+                new Nurse
+                {
+                    Id = 1,
+                    FirstName = "Moh ",
+                    LastName = "Ahmad",
+                    Gender = "Male",
+                    ContactNumber = "123-456-7890",
+                    shift = Nurse.Shift.Morning,
+                    DepartmentId = 1
+                },
+                new Nurse
+                {
+                    Id = 2,
+                    FirstName = "Jane",
+                    LastName = "JG",
+                    Gender = "Female",
+                    ContactNumber = "987-654-3210",
+                    shift = Nurse.Shift.Afternoon,
+                    DepartmentId = 2
+                },
+                new Nurse
+                {
+                    Id = 3,
+                    FirstName = "fname",
+                    LastName = "lname",
+                    Gender = "Male",
+                    ContactNumber = "555-555-5555",
+                    shift = Nurse.Shift.Night,
+                    DepartmentId = 1
+                }
+            );
+
+
+            // Seed Departments data
+            modelBuilder.Entity<Department>().HasData(
+                new Department
+                {
+                    Id = 1,
+                    DepartmentName = "Internal Medicine"
+                },
+                new Department
+                {
+                    Id = 2,
+                    DepartmentName = "Surgery"
+                }
+            );
+
+
+
+
+
         }
 
         public DbSet<Doctor> Doctors { get; set; }

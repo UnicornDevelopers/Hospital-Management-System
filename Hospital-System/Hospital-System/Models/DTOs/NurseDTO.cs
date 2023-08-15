@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using static Hospital_System.Models.Nurse;
 
 namespace Hospital_System.Models.DTOs
 {
@@ -9,14 +10,21 @@ namespace Hospital_System.Models.DTOs
         public string LastName { get; set; }
         public string Gender { get; set; }
         public string ContactNumber { get; set; }
-        public string Shift { get; set; }
+        public Shift Shift { get; set; }
 
         public int? DepartmentId { get; set; }
 
         //Nav
-        public Department department { get; set; }
+        public Department? department { get; set; }
 
 
+        //public enum Shift
+        //{
+        //    Morning,
+        //    Night,
+        //    Afternoon,
+
+        //}
 
     }
 }

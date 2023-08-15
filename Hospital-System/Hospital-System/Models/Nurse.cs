@@ -15,7 +15,7 @@ namespace Hospital_System.Models
 
         //Nav
         [ForeignKey("DepartmentId")]
-        public Department department { get; set; }
+        public Department? department { get; set; }
 
 
         public enum Shift
