@@ -1,11 +1,11 @@
-﻿using Hospital_System.Models.DTOs;
+﻿using Hospital_System.Models.DTOs.Room;
 
 namespace Hospital_System.Models.Interfaces
 {
     public interface IRoom
     {
 
-        Task<RoomDTO> Create(RoomDTO room);
+        Task<RoomDTO> CreateRoom(RoomDTO room);
 
         // GET All
         Task<List<RoomDTO>> GetRooms();
@@ -19,7 +19,7 @@ namespace Hospital_System.Models.Interfaces
 
         // Delete 
 
-        Task Delete(int id);
+        Task DeleteRoom(int id);
 
     }
 }

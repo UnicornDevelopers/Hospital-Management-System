@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Hospital_System.Models.DTOs.Department;
 
 namespace Hospital_System.Models.DTOs
 {
@@ -10,11 +11,10 @@ namespace Hospital_System.Models.DTOs
         public bool RoomAvailability { get; set; }
         public int NumberOfBeds { get; set; }
         public int? DepartmentId { get; set; }
-        public int PatientId { get; set; }
 
         //Nav
-        public List<Patient> Patients { get; set; }
-        public Department department { get; set; }
+        public List<PatientDTO>? Patients { get; set; }
+        public DepartmentDTO? department { get; set; }
 
     }
 }

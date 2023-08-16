@@ -1,4 +1,8 @@
 using Hospital_System.Data;
+using Hospital_System.Models;
+using Hospital_System.Models.DTOs;
+using Hospital_System.Models.Interfaces;
+using Hospital_System.Models.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hospital_System
@@ -50,6 +54,17 @@ namespace Hospital_System
 
 
             });
+
+            builder.Services.AddTransient<IHospital, HospitalService>();
+            builder.Services.AddTransient<IDepartment, DepartmentService>();
+            builder.Services.AddTransient<IRoom, RoomService>();
+            builder.Services.AddTransient<IAppointment, AppointmentService>();
+            builder.Services.AddTransient<IMedicalReport, MedicalReportService>();
+            builder.Services.AddTransient<IMedicine, MedicineService>();
+            builder.Services.AddTransient<INurse, NurseService>();
+            builder.Services.AddTransient<IDoctor, DoctorService>();
+            builder.Services.AddTransient<IPatient, PatientService>();
+
 
 
             var app = builder.Build();

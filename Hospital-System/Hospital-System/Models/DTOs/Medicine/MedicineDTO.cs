@@ -13,7 +13,7 @@ namespace Hospital_System.Models.DTOs
 
 
         //Nav
-        public MedicalReport medicalReport { get; set; }
+        public MedicalReportDTO? medicalReport { get; set; }
 
 
     }

@@ -2,23 +2,26 @@
 
 namespace Hospital_System.Models.DTOs
 {
-    public class PatientDTO
+    public class DoctorDTO
     {
+
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime DoB { get; set; }
         public string Gender { get; set; }
         public string ContactNumber { get; set; }
-        public string Address { get; set; }
-        public int? RoomId { get; set; }
+        public string Speciality { get; set; }
+
+        public int DepartmentId { get; set; }
+
 
 
         //Nav
-        public Room Rooms { get; set; }
-        public List<Appointment> Appointments { get; set; }
-        public List<MedicalReport> MedicalReports { get; set; }
+        public List<AppointmentDTO>? Appointments { get; set; }
+        public List<MedicalReportDTO>? medicalReports { get; set; }
+        public DepartmentDTO? department { get; set; }
 
 
     }
 }
+

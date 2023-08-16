@@ -1,17 +1,19 @@
-﻿using Hospital_System.Models.DTOs;
+﻿using Hospital_System.Models.DTOs.Doctor;
+using Hospital_System.Models.DTOs.DoctorDTO;
 
 namespace Hospital_System.Models.Interfaces
 {
     public interface IDoctor
     {
-        Task<DoctorDTO> Create(DoctorDTO doctor);
+        Task<OutDocDTO> Create(DoctorDTO doctor);
 
         // GET All
-        Task<List<DoctorDTO>> GetDoctors();
+        Task<List<OutDocDTO>> GetDoctors();
 
-        // GET Hotel By Id
 
+        // Get doctor by id
         Task<DoctorDTO> GetDoctor(int DoctorID);
+
 
         // Update
         Task<DoctorDTO> UpdateDoctor(int id, DoctorDTO DoctorDTO);
@@ -19,6 +21,9 @@ namespace Hospital_System.Models.Interfaces
         // Delete 
 
         Task Delete(int id);
+
+        //// Get all appointments of specific doctor
+        // Task<DoctorDTO> GetAppointments(int DoctorID);
 
 
     }
